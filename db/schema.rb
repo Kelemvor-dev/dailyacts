@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20161121143425) do
   add_index "friend_requests", ["friend_id"], name: "index_friend_requests_on_friend_id"
   add_index "friend_requests", ["user_id"], name: "index_friend_requests_on_user_id"
 
+  create_table "friends", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -39,9 +46,6 @@ ActiveRecord::Schema.define(version: 20161121143425) do
     t.string   "last_name"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.datetime "last_request_at"
-    t.integer  "frecuency"
-    t.boolean  "state_session"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

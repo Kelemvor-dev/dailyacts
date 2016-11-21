@@ -5,5 +5,6 @@ class AddTableFriends < ActiveRecord::Migration
     t.integer  "friend_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+	end
   end
 end

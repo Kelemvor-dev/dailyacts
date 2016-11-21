@@ -1,7 +1,11 @@
 <div class="row">
   <div class="col-md-12">
   <div class="thumbnail cont-profile-image">
-    <%= image_tag(@user_profile.image.url(), :class => "media-object img-box-user") %>
+  <% if @user_profile.image.url() == '/images/original/missing.png' %>  
+        <%= image_tag("missing.png", :class => "user-prof-image") %>
+        <% else %>
+         <%= image_tag(@user_profile.image.url(), :class => "media-object img-box-user") %>   
+      <% end %>        
   </div>
 
     <div class="jumbotron jumbo-profile" style="background-image: url(<%= @user_profile.portada.url() %>);background-size: 100%;">
