@@ -24,7 +24,7 @@ $.LoadingOverlay("show");
 // Hide it after 3 seconds
 setTimeout(function(){
     $.LoadingOverlay("hide");
-}, 8000);
+}, 3000);
 };
 
 var ready_2;
@@ -46,4 +46,11 @@ $(document).ajaxStart(function(){
 });
 $(document).ajaxStop(function(){
     $.LoadingOverlay("hide");
+});
+
+$(document).ready(function() {
+    setTimeout(function() {
+        $('#success-notifi').fadeOut(1500);
+        $('#error-notifi').fadeOut(1500);
+    },8000);
 });
