@@ -11,15 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161121142553) do
+ActiveRecord::Schema.define(version: 20161121143425) do
 
-  create_table "friends", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "friend_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-  
   create_table "friend_requests", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "friend_id"
@@ -29,8 +22,6 @@ ActiveRecord::Schema.define(version: 20161121142553) do
 
   add_index "friend_requests", ["friend_id"], name: "index_friend_requests_on_friend_id"
   add_index "friend_requests", ["user_id"], name: "index_friend_requests_on_user_id"
-
-  
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
