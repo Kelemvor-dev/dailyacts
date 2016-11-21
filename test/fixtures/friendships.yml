@@ -2,12 +2,8 @@
 
 one:
   user_id: 
-  friend_id: 1
-  create: MyString
-  destroy: MyString
+  friend_id: 
 
 two:
   user_id: 
-  friend_id: 1
-  create: MyString
-  destroy: MyString
+  friend_id: 

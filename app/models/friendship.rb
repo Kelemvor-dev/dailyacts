@@ -1,4 +1,7 @@
 class Friendship < ActiveRecord::Base
+  has_many :friendships, dependent: :destroy
+  has_many :friends, through: :friendships
+
   after_create :create_inverse_relationship
   after_destroy :destroy_inverse_relationship
 

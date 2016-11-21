@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'friends/index'
+
+  get 'friends/destroy'
+
   resources :friend_requests
   get 'friends/index'
 
@@ -26,7 +30,8 @@ Rails.application.routes.draw do
     resources :messages
   end
 
-  put "/friend_requests/:friend_id/create", to: "friend_requests#create"
+  put "/friend_requests/:id/create", to: "friend_requests#create"
+  get "friend_requests/index"
 
   get 'home/index'
   root 'home#index'

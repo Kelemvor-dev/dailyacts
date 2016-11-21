@@ -49,9 +49,4 @@ class User < ActiveRecord::Base
 
    private
 
-  # for demo purposes
-
-  def create_default_conversation
-    Conversation.create(sender_id: 1, recipient_id: self.id) unless self.id == 1
-  end
 end
