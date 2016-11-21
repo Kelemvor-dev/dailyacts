@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
+  <title>Projec name</title>
+  <link href='http://fonts.googleapis.com/css?family=Dosis:300,400,700' rel='stylesheet' type='text/css'>
+  <script src="https://use.fontawesome.com/8a47688c13.js"></script>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script>
+        project_url = {'base_url': '<%= request.base_url %>'}        
+  </script>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render "partials/menu" %>
+	<div class="wrap m-top-50">
+        <div class="container">
+            <% if notice %>
+                <div align="center">
+                    <div class="alert alert-success noti-all notifi" role="alert"><%= notice %>
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top: -18px;cursor: pointer;">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                </div>
+            <% end %>
+            <% if alert %>
+                <div align="center">
+                    <div class="alert alert-danger noti-all notifi" role="alert"><%= alert %>
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top: -18px;cursor: pointer;">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                </div>
+            <% end %>
+            <%= yield %>
+        </div>
+    </div>
+    <div class="t-foot"></div>
+    <footer class="footer">
+            <span>Copyright © 2016 - Todos los derechos reservados Jeyson Garcia</span>
+    </footer>
+    <audio id="chatAudio"><source src="/sounds/notification_2.mp3" type="audio/mpeg"></audio>
+</body>
+</html>

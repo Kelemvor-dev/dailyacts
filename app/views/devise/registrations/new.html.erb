@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-md-5 center-block no-float">
+    <h2>Crear cuenta</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {role: "form"}) do |f| %>
+    
+      <%= devise_error_messages! %>
+    
+      <% if session[:omniauth_errors] %>
+          <div class="alert alert-warning" role="alert">
+            <%= session[:omniauth_errors] %>
+          </div>
+      <% end %>  
+      <div class="form-group">
+        <label>Imagen del perfil</label>
+        <%= f.file_field :image %>
+      </div>
+      <div class="form-group">
+          <label>Nombre de usuario</label>
+          <%= f.text_field :username, :class => "form-control" %>
+      </div>
+      <div class="form-group">
+          <label>Nombres</label>
+          <%= f.text_field :first_name, :class => "form-control" %>
+      </div>
+      <div class="form-group">
+          <label>Apellidos</label>
+          <%= f.text_field :last_name, :class => "form-control" %>
+      </div>
+      <div class="form-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, :class => "form-control" %>
+      </div>
+      <div class="form-group">
+          <%= f.label "Contraseña" %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> Caracteres minimo)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
+      </div>
+      <div class="form-group">
+          <%= f.label "Confirme su contraseña" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
+      </div>
+      <div class="form-group">
+          <%= f.submit "Guardar", :class => "btn btn-default" %>
+      </div>
+    <% end %>
+  </div>
+</div>
