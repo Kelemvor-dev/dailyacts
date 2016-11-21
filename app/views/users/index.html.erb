@@ -1,29 +1,19 @@
 <div class="row">
-<% @users.each do |user| %>
+
+<% @users.each do |user| %>	
+<div class="col-xs-6 col-md-2">
+	<div class="friend-container thumbnail">
+		<% if user.image.url() == '/images/original/missing.png' %>  
+			<%= image_tag("missing.png", :class => "user-prof-image") %>
+			<% else %>
+			 <%= image_tag(user.image.url(), :class => "user-prof-image") %>   
+		<% end %>    
+	</div>
 	<% @outgoing.each do |friend| %>
 		<% if user.id == friend.friend_id %>
-			<div class="col-xs-6 col-md-2">
-				<div class="friend-container thumbnail">
-					<% if user.image.url() == '/images/original/missing.png' %>  
-						<%= image_tag("missing.png", :class => "user-prof-image") %>
-						<% else %>
-						 <%= image_tag(user.image.url(), :class => "user-prof-image") %>   
-					<% end %>    
-				</div>
-				 <%= link_to "Solicitar Amistad", "/friend_requests/#{user.id}/create", method: :put, :class => "btn btn-success a-color" %>
-			</div>
-		<% else %>
-		<div class="col-xs-6 col-md-2">
-				<div class="friend-container thumbnail">
-					<% if user.image.url() == '/images/original/missing.png' %>  
-						<%= image_tag("missing.png", :class => "user-prof-image") %>
-						<% else %>
-						 <%= image_tag(user.image.url(), :class => "user-prof-image") %>   
-					<% end %>    
-				</div>
-				 <%= link_to "Cancelar Amistad", "/friend_requests/#{user.id}/create", method: :put, :class => "btn btn-danger a-color" %>
-			</div>
-		<% end %>
-	<% end %>
+	 		<%= link_to "Solicitar Amistad", "/friend_requests/#{user.id}/create", method: :put, :class => "btn btn-success a-color" %>
+	 	<% end %>
+	 <% end %>
+</div>				
 <% end %>
 </div>

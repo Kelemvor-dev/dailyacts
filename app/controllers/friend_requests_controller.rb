@@ -11,7 +11,7 @@ class FriendRequestsController < ApplicationController
 		@friend_request = current_user.friend_requests.new(friend: friend)
 
 		if @friend_request.save
-		  redirect_to "home" 
+		  redirect_to "/home" 
 		else
 		  render json: @friend_request.errors, status: :unprocessable_entity
 		end
