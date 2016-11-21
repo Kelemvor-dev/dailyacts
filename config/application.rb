@@ -11,6 +11,8 @@ end
 
 module Easysmart
   class Application < Rails::Application
+
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -27,5 +29,7 @@ module Easysmart
     config.active_record.raise_in_transactional_callbacks = true
     #esto es de divice si no funciona en heroku quitarlo
     #config.assets.initialize_on_precompile = false
+    config.i18n.load_path += Dir[Rails.root.join('locales', '*.{rb,yml}').to_s]
+    config.i18n.default_locale = :'es'
   end
 end

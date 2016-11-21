@@ -9,7 +9,7 @@
 			 <%= image_tag(user.image.url(), :class => "user-prof-image") %>   
 		<% end %>    
 	</div>
-	 <%= link_to "Solicitar Amistad", "/friend_requests/#{user.id}/create", method: :put, :class => "btn btn-success a-color" %>
+	<%= link_to "Solicitar Amistad", "/friend_requests/#{user.id}/create", method: :put, :class => "btn btn-success a-color" %>
 </div>				
 <% end %>
 </div>
