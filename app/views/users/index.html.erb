@@ -9,11 +9,7 @@
 			 <%= image_tag(user.image.url(), :class => "user-prof-image") %>   
 		<% end %>    
 	</div>
-	<% @outgoing.each do |friend| %>
-		<% if user.id == friend.friend_id %>
-	 		<%= link_to "Solicitar Amistad", "/friend_requests/#{user.id}/create", method: :put, :class => "btn btn-success a-color" %>
-	 	<% end %>
-	 <% end %>
+	 <%= link_to "Solicitar Amistad", "/friend_requests/#{user.id}/create", method: :put, :class => "btn btn-success a-color" %>
 </div>				
 <% end %>
 </div>
