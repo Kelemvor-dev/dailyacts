@@ -1,12 +1,18 @@
-
-<div class="row">
-<% @incoming.each do |friend| %> 
-
-<% end %>
-</div>
-<div class="row">
-<%= @outgoing.inspect %>
-<% @outgoing.each do |friend| %> 
-
-<% end %>
+<div class="col-xs-12 col-md-12">
+<h1>Buscar Amigos</h1>
+<hr>
+	<div class="row">
+		<% @users.each do |user| %>	
+			<div class="col-xs-6 col-md-2" align="center">
+				<div class="friend-container thumbnail">
+					<% if user.image.url() == '/images/original/missing.png' %>  
+						<%= image_tag("missing.png", :class => "user-prof-image") %>
+						<% else %>
+						 <%= image_tag(user.image.url(), :class => "user-prof-image") %>   
+					<% end %>    
+				</div>
+				<%= link_to "Solicitar Amistad", "/friend_requests/#{user.id}/create", method: :put, :class => "btn btn-success a-color" %>
+			</div>				
+		<% end %>
+	</div>
 </div>
