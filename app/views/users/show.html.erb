@@ -40,14 +40,31 @@
     <div style="margin-top: 16%;">
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Muro</a></li>
-        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Seguidores</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Amigos</a></li>
         <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Galeria</a></li>
         <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Videos</a></li>
       </ul>
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="home">...</div>
         <div role="tabpanel" class="tab-pane" id="profile">
-          
+          <div class="col-xs-12 col-md-12">
+            <h1>Buscar Amigos</h1>
+            <hr>
+              <div class="row">
+                <% @profiles.each do |profile| %> 
+                  <div class="col-xs-6 col-md-2" align="center">
+                    <div class="friend-container thumbnail">
+                      <% if profile.image.url() == '/images/original/missing.png' %>  
+                        <%= image_tag("missing.png", :class => "user-prof-image") %>
+                        <% else %>
+                         <%= image_tag(profile.image.url(), :class => "user-prof-image") %>   
+                      <% end %>    
+                    </div>
+                    <!--<%= link_to "Eliminar Amistad", "/friend_requests/#{profile.id}/create", method: :put, :class => "btn btn-success a-color" %>-->
+                  </div>        
+                <% end %>
+              </div>
+          </div>
         </div>
         <div role="tabpanel" class="tab-pane" id="messages">...</div>
         <div role="tabpanel" class="tab-pane" id="settings">...</div>
